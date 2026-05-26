@@ -7,6 +7,6 @@
     "build": "node test.js"
   },
   "dependencies": {
-    "lodash": "4.17.20"
+    "lodash": "4.17.23"
   }
 }
