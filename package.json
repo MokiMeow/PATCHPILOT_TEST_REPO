@@ -1,0 +1,12 @@
+{
+  "name": "patchpilot-test-fixture",
+  "version": "1.0.0",
+  "private": true,
+  "scripts": {
+    "test": "node test.js",
+    "build": "node test.js"
+  },
+  "dependencies": {
+    "lodash": "4.17.20"
+  }
+}
