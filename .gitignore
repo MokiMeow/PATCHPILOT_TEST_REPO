@@ -1,0 +1,15 @@
+node_modules/
+.env
+.env.*
+*.pem
+*.key
+*.p8
+*.p12
+.npmrc
+.yarnrc
+.pnpm-store/
+dist/
+build/
+coverage/
+.turbo/
+.next/
