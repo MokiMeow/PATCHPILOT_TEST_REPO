@@ -7,6 +7,10 @@ const jwt = require("jsonwebtoken");
 const ejs = require("ejs");
 const handlebars = require("handlebars");
 const validator = require("validator");
+// marked 0.3.x: the legacy top-level call API. Upgrading to a patched 4.x is a
+// BREAKING change (named import + marked.parse), so a real fix must edit this
+// source file, not just bump the version — the agentic-remediation showcase.
+const marked = require("marked");
 
 const app = express();
 app.use(express.json());
@@ -24,6 +28,14 @@ app.get("/order/:id", async (req, res) => {
   const upstream = await axios.get(`https://api.acme.internal/orders/${req.params.id}`);
   const view = ejs.render("<h1><%= name %></h1>", { name: _.get(upstream.data, "customer.name", "guest") });
   res.send(handlebars.compile(view)({}));
+});
+
+// Renders a product note written in Markdown. Uses marked's legacy top-level
+// call signature marked(src) — exactly what breaks when the CVE fix bumps to 4.x.
+app.post("/notes/preview", (req, res) => {
+  const source = String((req.body && req.body.markdown) || "");
+  const html = marked(source);
+  res.type("html").send(html);
 });
 
 module.exports = app;
