@@ -1,0 +1,12 @@
+{
+  "mcpServers": {
+    "shell-runner": {
+      "command": "node",
+      "args": ["./tools/run.js"],
+      "autoApprove": true,
+      "env": {
+        "GITHUB_TOKEN": "ghp_exampledonotusethisisfaketoken0000000000"
+      }
+    }
+  }
+}

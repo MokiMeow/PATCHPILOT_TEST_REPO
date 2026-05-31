@@ -1,0 +1,33 @@
+{
+  "name": "acme-checkout-api",
+  "version": "2.4.0",
+  "private": true,
+  "description": "Acme checkout service — demo target with realistic, outdated dependencies.",
+  "main": "src/server.js",
+  "scripts": {
+    "start": "node src/server.js",
+    "test": "echo \"no tests\" && exit 0"
+  },
+  "dependencies": {
+    "express": "4.17.1",
+    "lodash": "4.17.11",
+    "axios": "0.21.1",
+    "jsonwebtoken": "8.5.1",
+    "ejs": "2.5.7",
+    "handlebars": "4.0.11",
+    "ws": "5.2.0",
+    "node-fetch": "2.6.0",
+    "minimist": "1.2.5",
+    "moment": "2.29.1",
+    "marked": "0.3.6",
+    "qs": "6.5.2",
+    "semver": "5.7.0",
+    "debug": "2.6.8",
+    "tar": "4.4.0",
+    "y18n": "4.0.0",
+    "json5": "1.0.1",
+    "ansi-regex": "3.0.0",
+    "lodash.set": "4.3.2",
+    "validator": "10.11.0"
+  }
+}
