@@ -6,7 +6,7 @@
   "main": "src/server.js",
   "scripts": {
     "start": "node src/server.js",
-    "test": "echo \"no tests\" && exit 0"
+    "test": "node --test"
   },
   "dependencies": {
     "express": "4.17.1",

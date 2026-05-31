@@ -31,11 +31,16 @@ app.get("/order/:id", async (req, res) => {
 });
 
 // Renders a product note written in Markdown. Uses marked's legacy top-level
-// call signature marked(src) — exactly what breaks when the CVE fix bumps to 4.x.
+// call signature marked(src) — exactly what breaks when the CVE fix bumps to 4.x
+// (in 4.x the export is an object, so marked(src) throws and the test below fails
+// until the source is migrated to the named import + marked.parse).
+function renderMarkdown(source) {
+  return marked(String(source || ""));
+}
+
 app.post("/notes/preview", (req, res) => {
-  const source = String((req.body && req.body.markdown) || "");
-  const html = marked(source);
-  res.type("html").send(html);
+  res.type("html").send(renderMarkdown(req.body && req.body.markdown));
 });
 
 module.exports = app;
+module.exports.renderMarkdown = renderMarkdown;
